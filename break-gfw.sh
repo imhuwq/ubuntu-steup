@@ -30,5 +30,6 @@ update_file $HOME/.bashrc 'alias uscmd="source $HOME/cmd/uscmd.sh"'
 call_seperator
 echo -e "${Red}Step 4:${NC}: please config your ssserver in ss-qt5!"
 echo -e "${Yellow} this step must be done by yourself manully"
+echo ""
 
 source uscmd.sh

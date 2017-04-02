@@ -19,4 +19,6 @@ sed -i -E "s/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"af-magic\"/" $HOME/.zshrc
 
 call_seperator
 echo -e "${Green}Done!${NC}"
+echo ""
+
 source uscmd.sh

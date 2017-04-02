@@ -30,3 +30,6 @@ sudo apt install htop
 
 call_seperator
 echo -e "${Green}Done!${NC}"
+echo ""
+
+source uscmd.sh

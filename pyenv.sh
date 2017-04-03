@@ -54,6 +54,15 @@ echo -e "${Red}Step 4${NC}: update bashrc file"
         sed -i -E "s/plugins=\((.*?)\)/plugins=(\1 pyenv)/" $HOME/.zshrc
     fi
 
+call_seperator
+echo -e "${Red}Step 5${NC}: setup douban pypi mirror"
+if [ ! -f $HOME/.pip/pip.conf ]; then
+    mkdir -p $HOME/.pip
+    touch $HOME/.pip/pip.conf
+fi
+update_file $HOME/.pip/pip.conf '[global]'
+update_file $HOME/.pip/pip.conf 'index-url = https://pypi.douban.com/simple'
+
 source uscmd.sh
 
 call_seperator

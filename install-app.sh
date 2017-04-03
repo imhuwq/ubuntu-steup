@@ -9,8 +9,8 @@ cd download
 
 call_seperator
 echo -e "${Red}Step 1${NC}: install chrome"
-# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-# sudo dpki -i google-chrome*.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpki -i google-chrome*.deb
 
 call_seperator
 echo -e "${Red}Step 2${NC}: install terminator"

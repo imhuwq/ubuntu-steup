@@ -11,6 +11,7 @@ function update_file {
     path="$1"
     line="$2"
     prefix="$3"
+
     if ! grep -Fxq "$line" "$path"; then
         if [ "$prefix" == "sudo" ]; then
             echo "$line" | sudo tee -a "$path"
@@ -24,8 +25,9 @@ function update_file {
 
 function delete_line {
     path="$1"
-    line="$2"
+    line="${2//\//\\/}"
     prefix="$3"
+
     if [ "$prefix" == "sudo" ]; then
         sudo sed -i "/$line/d" $path
     else
@@ -38,6 +40,6 @@ function append_to_buttom {
     line="$2"
     prefix="$3"
 
-    delete_line "$path" "$line" "$prefix"
-    update_file "$path" "$line" "$prefix"
+    delete_line "$1" "$2" "$3"
+    update_file "$1" "$2" "$3"
 }

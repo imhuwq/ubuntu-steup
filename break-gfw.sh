@@ -27,6 +27,11 @@ echo -e "${Red}Step 4${NC}: setup command alias"
 update_file $HOME/.bashrc 'alias sscmd="source $HOME/cmd/sscmd.sh"'
 update_file $HOME/.bashrc 'alias uscmd="source $HOME/cmd/uscmd.sh"'
 
+if [ -f $HOME/.zshrc ]; then
+    update_file $HOME/.zshrc 'alias sscmd="source $HOME/cmd/sscmd.sh"'
+    update_file $HOME/.zshrc 'alias uscmd="source $HOME/cmd/uscmd.sh"'
+fi
+
 call_seperator
 echo -e "${Red}Step 4:${NC}: please config your ssserver in ss-qt5!"
 echo -e "${Yellow} this step must be done by yourself manully"

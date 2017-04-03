@@ -16,5 +16,3 @@ LightGray='\e[0;37m'
 White='\e[1;37m'
 NC='\e[0m'
 
-tmuxConfTemplate='template/tmux.conf'
-

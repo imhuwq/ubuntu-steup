@@ -21,3 +21,23 @@ function update_file {
         fi
     fi
 }
+
+function delete_line {
+    path="$1"
+    line="$2"
+    prefix="$3"
+    if [ "$prefix" == "sudo" ]; then
+        sudo sed -i "/$line/d" $path
+    else
+        sed -i "/$line/d" $path
+    fi
+}
+
+function append_to_buttom {
+    path="$1"
+    line="$2"
+    prefix="$3"
+
+    delete_line "$path" "$line" "$prefix"
+    update_file "$path" "$line" "$prefix"
+}

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source sscmd.sh
-source vars.sh
-source utils.sh
+source helper/sscmd.sh
+source helper/vars.sh
+source helper/utils.sh
 
 call_seperator
 echo -e "${Red}Step 1${NC}: install zsh"
@@ -21,4 +21,4 @@ call_seperator
 echo -e "${Green}Done!${NC}"
 echo ""
 
-source uscmd.sh
+source helper/uscmd.sh

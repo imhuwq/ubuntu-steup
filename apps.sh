@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source sscmd.sh
-source vars.sh
-source utils.sh
+source helper/sscmd.sh
+source helper/vars.sh
+source helper/utils.sh
 
 mkdir -p download
 cd download
@@ -32,4 +32,4 @@ call_seperator
 echo -e "${Green}Done!${NC}"
 echo ""
 
-source uscmd.sh
+source helper/uscmd.sh

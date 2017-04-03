@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source vars.sh
-source utils.sh
-source sscmd.sh
+source helper/vars.sh
+source helper/utils.sh
+source helper/sscmd.sh
 
 call_seperator
 echo -e "${Red}Step 1${NC}: install shadowsocks-qt5"
@@ -24,12 +24,12 @@ update_file /etc/proxychains.conf 'socks5 127.0.0.1 1080' sudo
 
 call_seperator
 echo -e "${Red}Step 4${NC}: setup command alias"
-update_file $HOME/.bashrc 'alias sscmd="source $HOME/cmd/sscmd.sh"'
-update_file $HOME/.bashrc 'alias uscmd="source $HOME/cmd/uscmd.sh"'
+sed -i -E 's/alias sscmd=".*?"/alias sscmd="source $HOME\/cmd\/helper\/sscmd.sh"/' $HOME/.bashrc
+sed -i -E 's/alias uscmd=".*?"/alias uscmd="source $HOME\/cmd\/helper\/uscmd.sh"/' $HOME/.bashrc
 
 if [ -f $HOME/.zshrc ]; then
-    update_file $HOME/.zshrc 'alias sscmd="source $HOME/cmd/sscmd.sh"'
-    update_file $HOME/.zshrc 'alias uscmd="source $HOME/cmd/uscmd.sh"'
+    sed -i -E 's/alias sscmd=".*?"/alias sscmd="source $HOME\/cmd\/helper\/sscmd.sh"/' $HOME/.zshrc
+    sed -i -E 's/alias uscmd=".*?"/alias uscmd="source $HOME\/cmd\/helper\/uscmd.sh"/' $HOME/.zshrc
 fi
 
 call_seperator
@@ -37,4 +37,4 @@ echo -e "${Red}Step 4:${NC}: please config your ssserver in ss-qt5!"
 echo -e "${Yellow} this step must be done by yourself manully"
 echo ""
 
-source uscmd.sh
+source helper/uscmd.sh

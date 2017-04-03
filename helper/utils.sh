@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source vars.sh
+source helper/vars.sh
 
 function call_seperator {
     echo ""

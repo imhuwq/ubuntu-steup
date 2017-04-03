@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source vars.sh
-source utils.sh
-source sscmd.sh
+source helper/vars.sh
+source helper/utils.sh
+source helper/sscmd.sh
 
 call_seperator
 echo -e "${Red}Step 1${NC}: install building environments"
@@ -63,7 +63,7 @@ fi
 update_file $HOME/.pip/pip.conf '[global]'
 update_file $HOME/.pip/pip.conf 'index-url = https://pypi.douban.com/simple'
 
-source uscmd.sh
+source helper/uscmd.sh
 
 call_seperator
 echo -e "${Green}Done!${NC}"

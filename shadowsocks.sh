@@ -22,14 +22,16 @@ sudo apt install proxychains
 sudo sed -i -E "s/socks4\s+127.0.0.1\s+9050/# socks4 127.0.0.1 9050/" /etc/proxychains.conf
 update_file /etc/proxychains.conf 'socks5 127.0.0.1 1080' sudo
 
+ss_begin='# setup http(s) proxy to shadowsocks'
+sscmd='alias sscmd="source $HOME/cmd/helper/sscmd.sh"'
+uscmd='alias uscmd="source $HOME/cmd/hel[er/uscmd.sh"'
+
 call_seperator
 echo -e "${Red}Step 4${NC}: setup command alias"
-sed -i -E 's/alias sscmd=".*?"/alias sscmd="source $HOME\/cmd\/helper\/sscmd.sh"/' $HOME/.bashrc
-sed -i -E 's/alias uscmd=".*?"/alias uscmd="source $HOME\/cmd\/helper\/uscmd.sh"/' $HOME/.bashrc
+grep -q "$ss_begin" $HOME/.bashrc || echo -e "\n$ss_begin\n$sscmd\n$uscmd\n" >> $HOME/.bashrc
 
 if [ -f $HOME/.zshrc ]; then
-    sed -i -E 's/alias sscmd=".*?"/alias sscmd="source $HOME\/cmd\/helper\/sscmd.sh"/' $HOME/.zshrc
-    sed -i -E 's/alias uscmd=".*?"/alias uscmd="source $HOME\/cmd\/helper\/uscmd.sh"/' $HOME/.zshrc
+    grep -q "$ss_begin" $HOME/.zshrc || echo -e "\n$ss_begin\n$sscmd\n$uscmd\n" >> $HOME/.zshrc
 fi
 
 call_seperator

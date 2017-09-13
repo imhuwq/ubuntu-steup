@@ -33,7 +33,7 @@ echo -e "${Red}Step 4${NC}: setup command alias"
 
 ss_begin='# setup http(s) proxy to shadowsocks'
 sscmd='alias sscmd="source $HOME/cmd/helper/sscmd.sh"'
-uscmd='alias uscmd="source $HOME/cmd/hel[er/uscmd.sh"'
+uscmd='alias uscmd="source $HOME/cmd/helper/uscmd.sh"'
 
 grep -q "$ss_begin" $HOME/.bashrc || echo -e "\n$ss_begin\n$sscmd\n$uscmd\n" >> $HOME/.bashrc
 
